@@ -1,0 +1,6 @@
+venv/
+*.png
+!search.png
+*.json
+!template.json
+!global_config.json
