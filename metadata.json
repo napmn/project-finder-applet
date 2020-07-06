@@ -1,0 +1,9 @@
+{
+    "max-instances": "10",
+    "dangerous": false,
+    "description": "Menu applet for starting or searching for projects",
+    "uuid": "project-loader@napmn",
+    "name": "Project Finder",
+    "version": "0.1",
+    "icon": "system-run"
+}
