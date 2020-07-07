@@ -30,7 +30,7 @@ ProjectMenuItem.prototype = {
             this.icon = new St.Icon(
                 {
                     gicon: gIcon,
-                    icon_size: 32,
+                    icon_size: 24,
                     icon_type: St.IconType.FULLCOLOR,
                     // style_class: "nejakacssclassa"
                 }
@@ -53,8 +53,7 @@ ProjectMenuItem.prototype = {
 }
 
 
-function ProjectFinder(orientation, panelHeight, instanceId) {
-    // this.settings = new Settings.AppletSettings(this, UUID, instanceId);
+function ProjectFinder(metadata, orientation, panelHeight, instanceId) {
     this._init(orientation, panelHeight, instanceId);
 }
 
@@ -103,7 +102,7 @@ ProjectFinder.prototype = {
 
         // iterate over contents of config folder
         while((file = fileEnumerator.next_file(null)) !== null) {
-            if (file.get_file_type() === Gio.FileType.REGULAR) {
+            if (file.get_file_type() === Gio.FileType.REGULAR && file.get_name() !== 'template.json') {
                 try {
                     let configFile = Gio.file_new_for_path(USER_CONFIGS_PATH + '/' + file.get_name());
                     let [ok, data, etag] = configFile.load_contents(null);
